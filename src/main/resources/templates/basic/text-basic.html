@@ -12,3 +12,18 @@
     </ul>
 </body>
 </html>
+<!--
+HTML 엔티티(Entities)
+HTML에서는 특정 문자(character)들을 태그로 인식한다.
+예를들어,
+  표시: 공백 | 엔티티: &nbsp;
+  표시: <,> | 엔티티: &lt;,&gt;
+이렇게 HTML에서 사용하는 특정 문자를 HTML 엔티티로 변경하는 것을 이스케이프(escape)라 한다.
+  - 예 : “Hello <b>Spring!</b>”
+  - 출력 결과 : Hello **Spring!** (Spring!이 bold 표시 됨)
+  - 소스 보기 : Hello &lt;bgt;Spring!&lt;/bgt;
+타임리프가 제공하는 th:text, [[...]] 는 기본적으로 escape를 제공한다.
+
+즉, 화면에 HTML에서 사용하는 특정 문자를 문자 그대로 표시하고 싶은 경우, th:text,[[...]] 를 이용하자.
+태그로 이용하고 싶을 때는 th:utext,[(...)]를 이용하자.
+-->

@@ -18,3 +18,22 @@
     </ul>
 </body>
 </html>
+<!--
+unescape
+ ※ 이스케이프(escape) : HTML에서 사용하는 특정 문자를 HTML 엔티티로 변경하는 것
+escape를 사용하지 않으려면 어떻게 해야할까?
+ th:text → th:utext
+ [[…]] → [(…)]
+
+위 HTML 결과
+- 출력 결과 :
+  th:text = Hello <b>Spring!</b>
+  th:utext = Hello Spring! (Spring!이 bold)
+  [[...]] = Hello <b>Spring!</b>
+  [(...)] = Hello Spring! (Spring!이 bold)
+- 소스 보기 :
+  th:text = Hello &lt;bgt;Spring!&lt;/bgt;
+  th:utext = Hello <b>Spring!</b>
+  [[...]] = Hello &lt;bgt;Spring!&lt;/bgt;
+  [(...)] = Hello <b>Spring!</b>
+-->
