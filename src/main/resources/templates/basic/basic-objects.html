@@ -7,6 +7,7 @@
 <body>
     <h1>식 기본 객체 (Expression Basic Objects)</h1>
     <ul>
+        <!-- #request는 HttpServletRequest 가 그대로 제공된다.-->
         <li>request = <span th:text="${#request}"></span></li>
         <li>response = <span th:text="${#response}"></span></li>
         <li>session = <span th:text="${#session}"></span></li>
@@ -21,3 +22,11 @@
     </ul>
 </body>
 </html>
+<!--
+#request는 HttpServletRequest 객체가 그대로 제공되기 때문에 request.getParameter("data") 처럼 접근해야 한다.
+
+이 불편함 때문에 편의 객체가 제공된다.
+HTTP 요청 파라미터 접근 : param
+HTTP 세션 접근 : session
+스프링 빈 접근 : @
+-->

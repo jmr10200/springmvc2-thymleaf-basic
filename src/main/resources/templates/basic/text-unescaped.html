@@ -8,13 +8,21 @@
     <h1>text vs utext</h1>
     <ul>
         <li>th:text = <span th:text="${data}"></span></li>
+        <!-- 화면표시 : th:text = Hello <b>Spring!</b> -->
+        <!-- 소스보기 : th:text = Hello &lt;bgt;Spring!&lt;/bgt; -->
         <li>th:utext = <span th:utext="${data}"></span></li>
+        <!-- 화면표시 : th:utext = Hello Spring! (Spring!이 bold) -->
+        <!-- 소스보기 : th:utext = Hello <b>Spring!</b> -->
     </ul>
-    <!-- 타임리프는 [[...]]를 변환하려 한다. 이를 변환하지 말라는 의미로 th:inline="none"를 지정해 줬다 -->
+    <!-- 타임리프는 [[...]]를 변환하려 한다. 변환하지 않을 경우에는 th:inline="none" 를 지정한다 -->
     <h1><span th:inline="none">[[...]] vs [(...)]</span></h1>
     <ul>
         <li><span th:inline="none">[[...]] = </span>[[${data}]]</li>
+        <!-- 화면표시 : [[...]] = Hello <b>Spring!</b> -->
+        <!-- 소스보기 : [[...]] = Hello &lt;bgt;Spring!&lt;/bgt; -->
         <li><span th:inline="none">[(...)] = </span>[(${data})]</li>
+        <!-- 화면표시 : [(...)] = Hello Spring! (Spring!이 bold) -->
+        <!-- 소스보기 : [(...)] = Hello <b>Spring!</b> -->
     </ul>
 </body>
 </html>
@@ -36,4 +44,9 @@ escape를 사용하지 않으려면 어떻게 해야할까?
   th:utext = Hello <b>Spring!</b>
   [[...]] = Hello &lt;bgt;Spring!&lt;/bgt;
   [(...)] = Hello <b>Spring!</b>
+
+** 주의
+실제 서비스를 개발하다 보면 escape를 사용하지 않아서 HTML이 정상 렌더링 되지 않는 수 많은 문제가 발생한다.
+escape를 기본으로 하고, 꼭 필요할 때만 unescape를 사용하도록 하자.
+
 -->
