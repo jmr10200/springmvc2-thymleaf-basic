@@ -13,6 +13,8 @@
     </ul>
   </li>
   <li>비교 연산
+    <!-- 비교 연산 -->
+    <!-- > (gt), < (lt), >= (ge), <= (le), ! (not), == (eq), != (neq, ne) -->
     <ul>
       <li>1 > 10 = <span th:text="1 &gt; 10"></span></li>
       <li>1 gt 10 = <span th:text="1 gt 10"></span></li>
@@ -24,21 +26,38 @@
   </li>
   <li>조건식
     <ul>
+      <!-- java 의 삼항연산자와 동일 -->
       <li>(10 % 2 == 0)? '짝수':'홀수' = <span th:text="(10 % 2 == 0)? '짝수':'홀수'"></span></li>
     </ul>
   </li>
   <li>Elvis 연산자
     <ul>
+      <!-- 조건식과 동일하게 동작한다 -->
       <li>${data}?: '데이터가 없습니다.' = <span th:text="${data}?: '데이터가 없습니다.'"></span></li>
+      <!-- 출력결과 : ${data} 에 전달된 값-->
       <li>${nullData}?: '데이터가 없습니다.' = <span th:text="${nullData}?: '데이터가 없습니다.'"></span></li>
+      <!-- 출력결과 : 데이터가 없습니다. (null 이 전달됨) -->
     </ul>
   </li>
   <li>No-Operation
     <ul>
+      <!-- _ 는 마치 타임리프가 실행되지 않는 것처럼 동작한다.-->
       <li>${data}?: _ = <span th:text="${data}?: _">데이터가 없습니다.</span></li>
+      <!-- 출력결과 : ${data} 에 전달된 값-->
       <li>${nullData}?: _ = <span th:text="${nullData}?: _">데이터가 없습니다.</span></li>
+      <!-- 출력결과 : 데이터가 없습니다. (null 이 전달됨) -->
     </ul>
   </li>
 </ul>
 </body>
 </html>
+
+<!--
+연산은 java 와 크게 다르지 않다. HTML 안에서 사용하므로 HTML 엔티티는 유의할 필요가 있다.
+
+ - 비교 연산 : > (gt), < (lt), >= (ge), <= (le), ! (not), == (eq), != (neq, ne)
+ - 조건식 : 자바의 조건식과 유사하다. 삼항연산자 가능
+ - Elvis 연산자 : 조건식의 편의 버전 ?: (Elvis 를 닮았다고 해서)
+ - No-Operation: _ 인 경우 마치 타임리프가 실행되지 않는 것 처럼 동작한다. HTML 의 내용 그대로를 활용할 수 있다.
+
+-->
