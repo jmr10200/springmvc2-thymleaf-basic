@@ -2,10 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="template/layout/base :: common_header(~{::title},~{::link})">
   <title>메인 타이틀</title>
+  <!-- 개별 페이지마다 사용하는 css, javascript 등을 설정 -->
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
   <link rel="stylesheet" th:href="@{/themes/smoothness/jquery-ui.css}">
+  <!-- 출력 결과 :
+  <head>
+   <title>메인 타이틀</title>
+   base.html 에 정의한 공통 부분
+   <link rel="stylesheet" type="text/css" media="all" href="/css/awesomeapp.css">
+   <link rel="shortcut icon" href="/images/favicon.ico">
+   <script type="text/javascript" src="/sh/scripts/codebase.js"></script>
+   개별 페이지에 정의한 부분
+   <link rel="stylesheet" href="/css/bootstrap.min.css">
+   <link rel="stylesheet" href="/themes/smoothness/jquery-ui.css">
+  </head>
+  -->
 </head>
 <body>
 메인 컨텐츠
 </body>
 </html>
+<!--
+템플릿 레이아웃
+
+코드 조각을 레이아웃에 넘겨서 사용하는 방법
+예를들어 <head>에 공통적으로 사용하는 css, javascript 들을 한 곳에 모아 놓고(base.html)
+불러와서 사용하면 된다.
+각 페이지마다 개별적으로 사용하는 것은 각 페이지에 설정한다. <link>
+출력해보면 공통 부분은 그대로 유지되고, 추가 부분에 전달한 <link> 들이 포함된 것을 확인할 수 있다.
+
+ - 포인트 : common_header(~{::title},~{::link})
+ ::title 은 현재 페이지의 title 태그들을 전달한다.
+ ::link 는 현재 페이지의 link 태그들을 전달한다.
+-->

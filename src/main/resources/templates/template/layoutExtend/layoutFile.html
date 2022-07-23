@@ -13,3 +13,12 @@
 </footer>
 </body>
 </html>
+<!--
+기본 레이아웃 정의
+
+th:fragment="layout (title, content)"
+ layoutExtendMain.html 의 th:replace="~{template/layoutExtend/layoutFile :: layout(~{::title}, ~{::section})}"
+ 이를 이용해서 layoutFile.html 을 호출하고있고,
+
+th:replace="${title}" 를 이용하여 html 자체를 변경한다.
+-->
